@@ -1,0 +1,68 @@
+<div class="container mt-5">
+    <div class="row align-items-center">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="cedula">Cédula:</label>
+                <input type="text"   [(ngModel)]="cedula" class="form-contro form-control-lg" id="cedula" placeholder="Ingrese la cédula">
+            </div>
+        </div>
+    </div>
+
+    <div class="row align-items-center">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" [(ngModel)]="nombre" class="form-control form-control-lg" id="nombre" placeholder="Ingrese el nombre">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="apellido">Apellido</label>
+                <input type="text"  [(ngModel)]="apellido" class="form-control form-control-lg" id="apellido" placeholder="Ingrese el apellido">
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-group">
+                <label for="cedula">Fecha de Nacimiento</label>
+                <input type="Date" [(ngModel)]="fechaNacimiento" class="form-control form-control-lg" id="fechaNacimiento">
+            </div>
+            
+        </div>
+
+        <div class="col-md-6" style="padding: 10px;">
+            <button class="btn btn-primary" (click)="agregarPersona()">Agregar</button>
+          </div>
+          
+        
+    </div>
+
+    <!--Tabla-->
+
+    <div class="col-lg-6 offset-lg-3 mt-3">
+        
+        <table class="table table-striped mt-2">
+          <thead>
+            <tr>
+              <th scope="col">Cedula</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Apellido</th>
+              <th scope="col">fechaNacimiento</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let persona of listaPersonas; let i = index">
+              <td>{{persona.cedula}}</td>
+              <td>{{persona.nombre}}</td>
+              <td>{{persona.apellido}}</td>
+              <td>{{persona.fechaNacimiento}}</td>
+              <td>
+                <span class="cursor text-danger" (click)="eliminarPersona(i)">
+                    <i class="bi bi-file-earmark-excel" style="color:rgb(198, 34, 34);"></i>
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+</div>
